@@ -1,0 +1,22 @@
+{
+    "theme": "dark",
+    "cookies_mode": "off",
+    "cookie_file": "",
+    "cookies_browser": "chrome",
+    "cookies_profile": "",
+    "accent": "blue",
+    "text_scale": 1.0,
+    "download_dir": "Downloads",
+    "stats": {
+        "total": 1,
+        "completed": 0,
+        "failed": 0,
+        "last_size": 0,
+        "history": [
+            {
+                "date": "2026-09-12",
+                "total": 1
+            }
+        ]
+    }
+}

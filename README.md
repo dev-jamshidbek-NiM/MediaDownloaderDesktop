@@ -1,174 +1,87 @@
-🎬 Media Downloader (GUI)
+# 🎬 Media Downloader (Desktop GUI)
 
-A modern desktop media downloader built with Python + CustomTkinter on top of yt-dlp.
-Supports YouTube and many other platforms with manual quality selection, download history, pause/resume, and robust anti-blocking handling.
+A modern desktop media downloader built with **Python + CustomTkinter**, powered by **yt-dlp**.
 
-This project focuses on real-world reliability, not just “works on my machine”.
+Downloads video, audio, and images from any site supported by yt-dlp, with resolution selection, subtitle downloads, batch URL support, and full control over each download (pause / resume / retry / cancel).
 
-✨ Features
-Core
+This project focuses on real-world reliability — not just "works on my machine."
 
-✅ Download Video / Audio
+![Downloader screen](screenshots/downloader.png)
 
-✅ Manual resolution & bitrate selection
+## ✨ Features
 
-✅ Pause / Resume / Retry / Cancel downloads
+**Core**
+- ✅ Download video, audio, or images from any yt-dlp-supported site
+- ✅ Manual resolution selection per link
+- ✅ Subtitle download when available
+- ✅ Single-link and batch (multi-link) downloading
+- ✅ Pause / Resume / Retry / Cancel per download
+- ✅ Live progress, download speed, and ETA per item
 
-✅ Per-download progress, speed, ETA
+**Navigation**
+- ✅ Sidebar with Dashboard, Downloader, History, and Settings
+- ✅ Dashboard originally showed live statistics, but was simplified to reduce load on the app
+- ✅ History page lists every previously fetched URL, with quality buttons to re-download
 
-✅ Multiple simultaneous downloads (threaded)
+**Settings**
+- ✅ Theme and accent color selection
+- ✅ Adjustable text size
+- ✅ Custom download folder
+- ✅ Optional cookies.txt support (for sites that require login/consent)
+- ✅ Reset to defaults
 
-✅ Auto-resume partial downloads
+## 🖼️ Screenshots
 
-YouTube-Focused Hardening
+| Downloader | History |
+|---|---|
+| ![Downloader](screenshots/downloader.png) | ![History](screenshots/history.png) |
 
-✅ Handles YouTube SABR streaming
+| Settings |
+|---|
+| ![Settings](screenshots/settings.png) |
 
-✅ Supports EJS / JS challenge solving
+## 🛠️ Tech Stack
 
-✅ Cookie support (cookies.txt or browser import)
+- Python 3.10+
+- CustomTkinter (UI)
+- yt-dlp (download engine)
+- FFmpeg (audio/video processing)
 
-✅ Smart fallback format selection
+## 📦 Requirements
 
-✅ Prevents re-downloading same video + quality
+```bash
+pip install yt-dlp customtkinter
+```
 
-UI / UX
+Install FFmpeg and make sure it's available in your system PATH.
 
-✅ Clean CustomTkinter UI
+## ▶️ Run the App
 
-✅ Sidebar navigation (Dashboard / Downloader / History / Settings)
-
-✅ Scrollable History cards
-
-✅ Download cards styled consistently across pages
-
-✅ Mouse wheel & touchpad scrolling
-
-✅ Reveal download folder button
-
-✅ Clipboard monitor (optional auto-link capture)
-
-History & Persistence
-
-✅ Download history saved to JSON
-
-✅ De-duplicated history entries
-
-✅ Re-download from history with one click
-
-✅ Resolution buttons generated from fetched formats
-
-🧠 Why this project exists
-
-Most GUI downloaders:
-
-freeze the UI
-
-break on YouTube updates
-
-don’t handle SABR / JS challenges
-
-silently fail on 403 errors
-
-This project is built to:
-
-fail loudly
-
-recover automatically
-
-handle modern YouTube protections
-
-stay usable even when formats change
-
-🛠️ Tech Stack
-
-Python 3.10+
-
-yt-dlp
-
-CustomTkinter
-
-FFmpeg
-
-Node.js (for YouTube JS challenges)
-
-📦 Requirements
-
-Install dependencies:
-
-pip install yt-dlp customtkinter matplotlib
-
-
-Install FFmpeg and ensure it’s in PATH.
-
-Install Node.js (required for YouTube EJS challenges):
-
-https://nodejs.org/
-
-▶️ Run the App
+```bash
 python main.py
+```
 
-🍪 Cookies (Highly Recommended for YouTube)
+## 🍪 Cookies (recommended for some sites)
 
-Some YouTube videos require login / consent / age verification.
+Some platforms (including YouTube) require login, consent, or age verification for certain videos. If a download fails or shows limited resolutions, add a `cookies.txt` file from the Settings page — this fixes most "403 Forbidden" or "only images available" errors.
 
-Option 1: cookies.txt
+## ⚠️ Known Limitations
 
-Place a cookies.txt file next to the app root.
+- Some formats require an account or region access and won't be available
+- DRM-protected streams cannot be downloaded
 
-Option 2: Browser cookies
+## 🚀 Planned Features
 
-The app supports:
+- Download queue prioritization
+- Separate audio-language selection
+- Playlist manager UI
+- Per-site download statistics
 
-cookiesfrombrowser=("chrome",)
+## 🧑‍💻 Author
 
+Built by **Jamshidbek Foziljonov**
+GitHub: [dev-jamshidbek-NiM](https://github.com/dev-jamshidbek-NiM)
 
-This dramatically reduces:
+## 📜 Disclaimer
 
-403 Forbidden errors
-
-Missing resolutions
-
-“Only images available” issues
-
-📁 File Naming
-
-Supports templates like:
-
-{title} - {resolution}.{ext}
-{uploader}/{title}.{ext}
-
-
-Automatically appends quality to avoid duplicate downloads.
-
-⚠️ Known Limitations
-
-Some YouTube formats require login or region access
-
-PO Tokens (Android/iOS clients) are not implemented (by design)
-
-DRM-protected streams cannot be downloaded
-
-🚀 Planned Features
-
-⏳ Download queue prioritization
-
-🎧 Separate audio language selection
-
-📺 Playlist manager UI
-
-🌙 True light/dark theme switch
-
-📊 Per-site statistics
-
-🔍 URL auto-classification (site detection)
-
-🧑‍💻 Author
-
-Built by Maverick
-Focused on practical tooling, not toy demos.
-
-📜 Disclaimer
-
-This tool is for educational and personal use only.
-Respect the terms of service and copyright laws of content platforms.
+This tool is for educational and personal use only. Respect the terms of service and copyright laws of the platforms you download from.
